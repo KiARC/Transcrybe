@@ -8,6 +8,15 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
+    - name: Free up space
+      uses: easimon/maximize-build-space@master
+      with:
+        # We need space at /var/docker for the image to be built to
+        root-reserve-mb: 16384
+        swap-size-mb: 1024
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-codeql: 'true'
     - uses: actions/checkout@v4
     - name: Build and publish docker image
       uses: whoan/docker-build-with-cache-action@v5
