@@ -5,7 +5,8 @@ ENV TRANSCRYBE_HF_TOKEN=PLEASE_ADD_A_TOKEN
 # Install pipx, used to install poetry
 RUN apt-get update && \
     apt-get install -y pipx && \
-    pipx ensurepath
+    pipx ensurepath && \
+    pipx ensurepath --global
 
 # Install poetry
 RUN pipx install poetry
