@@ -3,8 +3,8 @@ FROM python:3.12-bookworm
 ENV TRANSCRYBE_HF_TOKEN=PLEASE_ADD_A_TOKEN
 
 # Install poetry
-RUN curl -sSL https://install.python-poetry.org | python3 - && export PATH="/root/.local/bin:$PATH"
-ENV PATH="$POETRY_HOME/bin:$PATH"
+RUN curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH=/root/.local/bin:$PATH
 
 WORKDIR /app
 
