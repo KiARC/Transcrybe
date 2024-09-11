@@ -14,8 +14,9 @@ RUN pipx install poetry
 WORKDIR /app
 
 # Install dependencies 
-COPY README.md pyproject.toml poetry.lock .
-RUN poetry install --no-root
+RUN touch README.md
+COPY pyproject.toml poetry.lock .
+RUN poetry install --without dev
 
 COPY transcrybe .
 
