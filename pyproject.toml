@@ -11,8 +11,9 @@ package-mode = false
 python = "^3.12"
 fastapi = { extras = ["standard"], version = "^0.114.0" }
 python-multipart = "^0.0.9"
-pyannote-audio = { git = "https://github.com/pyannote/pyannote-audio", rev = "0ea4c025ee048c36d74ccdb8b3f4939a27ad729b" }
 whisperx = { git = "https://github.com/m-bain/whisperx.git" }
+# Poetry for some reason picks 0.51.1 otherwise which requires an old llvmlite version which prevents the env from building
+numba = "^0.60.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
