@@ -11,7 +11,7 @@ python = "^3.12"
 fastapi = { extras = ["standard"], version = "^0.114.0" }
 python-multipart = "^0.0.9"
 pyannote-audio = { git = "https://github.com/pyannote/pyannote-audio", rev = "0ea4c025ee048c36d74ccdb8b3f4939a27ad729b" }
-whisperx = {git = "https://github.com/m-bain/whisperx.git"}
+whisperx = { git = "https://github.com/m-bain/whisperx.git" }
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
@@ -28,4 +28,3 @@ envfile = ".env"
 
 [tool.poe.tasks.serve]
 cmd = "fastapi run transcrybe/main.py"
-envfile = ".env"
