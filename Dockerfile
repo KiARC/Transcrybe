@@ -14,9 +14,9 @@ WORKDIR /app
 
 # Install dependencies 
 RUN touch README.md
-COPY pyproject.toml poetry.lock .
+COPY pyproject.toml poetry.lock ./
 RUN poetry install --without dev
 
-COPY transcrybe .
+COPY transcrybe ./
 
 CMD ["poetry", "run", "poe", "serve"]
