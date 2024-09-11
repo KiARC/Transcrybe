@@ -7,6 +7,11 @@ license = "Apache-2.0"
 readme = "README.md"
 package-mode = false
 
+[[tool.poetry.source]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
+
 [tool.poetry.dependencies]
 python = "^3.12"
 fastapi = { extras = ["standard"], version = "^0.114.0" }
@@ -14,6 +19,9 @@ python-multipart = "^0.0.9"
 whisperx = { git = "https://github.com/m-bain/whisperx.git" }
 # Poetry for some reason picks 0.51.1 otherwise which requires an old llvmlite version which prevents the env from building
 numba = "^0.60.0"
+# Use CPU build of torch, I'm not supporting GPUs yet and the NVIDIA dependencies are huge
+torch = { version = "^2.4.1+cpu", source = "pytorch-cpu" }
+torchaudio = {version = "^2.4.1+cpu", source = "pytorch-cpu"}
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
