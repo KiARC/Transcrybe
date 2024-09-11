@@ -3,10 +3,9 @@ FROM python:3.12-bookworm
 ENV TRANSCRYBE_HF_TOKEN=PLEASE_ADD_A_TOKEN
 
 # Install pipx, used to install poetry
-RUN sudo apt update && \
-    sudo apt install pipx && \
-    pipx ensurepath && \
-    sudo pipx ensurepath --global
+RUN apt update && \
+    apt install pipx && \
+    pipx ensurepath
 
 # Install poetry
 RUN pipx install poetry
