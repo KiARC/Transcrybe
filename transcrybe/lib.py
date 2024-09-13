@@ -25,12 +25,16 @@ if not environ.get("TRANSCRYBE_MODEL_SIZE") or environ.get(
     "large",
     "large-v2",
 ]:
-    print("Please set TRANSCRYBE_MODEL_SIZE a valid size for the whisper model.")
+    print("Please set TRANSCRYBE_MODEL_SIZE to a valid size for the whisper model.")
     exit(2)
 
-trans_model = whisperx.load_model(environ.get("TRANSCRYBE_MODEL_SIZE"), "cpu", compute_type="int8", language="en")
+if not environ.get("TRANSCRYBE_LANGUAGE"):
+    print("Please set TRANSCRYBE_LANGUAGE to a valid language for the whisper model.")
+    exit(3)
+
+trans_model = whisperx.load_model(environ.get("TRANSCRYBE_MODEL_SIZE"), "cpu", compute_type="int8", language=environ.get("TRANSCRYBE_LANGUAGE"))
 align_model, align_model_meta = whisperx.load_align_model(
-    language_code="en", device="cpu"
+    language_code=environ.get("TRANSCRYBE_LANGUAGE"), device="cpu"
 )
 dia_model = whisperx.DiarizationPipeline(
     use_auth_token=environ.get("TRANSCRYBE_HF_TOKEN"), device="cpu"
