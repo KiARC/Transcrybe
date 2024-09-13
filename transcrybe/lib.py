@@ -1,7 +1,7 @@
 # This is all built off of the example in the README of https://github.com/m-bain/whisperX
 from os import environ
 import whisperx
-
+import time
 import whisperx.utils
 
 if (
@@ -43,6 +43,10 @@ dia_model = whisperx.DiarizationPipeline(
 
 def transcribe(filename: str):
     audio = whisperx.load_audio(filename)
+    
+    print(f"Processing \"{audio.filename}\"...")
+    start = time.perf_counter()
+    
     result = trans_model.transcribe(audio, batch_size=8)
     result = whisperx.align(
         result["segments"],
@@ -54,4 +58,7 @@ def transcribe(filename: str):
     )
     dia_segments = dia_model(audio)
     result = whisperx.assign_word_speakers(dia_segments, result)
+    
+    end = time.perf_counter()
+    print(f"Done processing \"{audio.filename}\" in {round(end-start,3)} seconds")
     return result
