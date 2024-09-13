@@ -4,6 +4,10 @@ import whisperx
 
 import whisperx.utils
 
+if not environ.get("TRANSCRYBE_HF_TOKEN") or environ.get("TRANSCRYBE_HF_TOKEN") == "PLEASE_ADD_A_TOKEN":
+    print("Please set the TRANSCRYBE_HF_TOKEN environment variable.")
+    exit(1)
+
 trans_model = whisperx.load_model(
     "small", "cpu", compute_type="int8", language="en")
 align_model, align_model_meta = whisperx.load_align_model(
