@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "transcrybe"
-version = "0.2.2"
+version = "0.2.3"
 description = "FastAPI service to transcribe and diarize audio"
 authors = ["Katherine Rose <kiarc@kiarc.win>"]
 license = "Apache-2.0"
