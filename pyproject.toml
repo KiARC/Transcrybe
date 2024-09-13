@@ -21,12 +21,12 @@ whisperx = { git = "https://github.com/m-bain/whisperx.git" }
 numba = "^0.60.0"
 # Use CPU build of torch, I'm not supporting GPUs yet and the NVIDIA dependencies are huge
 torch = { version = "^2.4.1+cpu", source = "pytorch-cpu" }
-torchaudio = {version = "^2.4.1+cpu", source = "pytorch-cpu"}
+torchaudio = { version = "^2.4.1+cpu", source = "pytorch-cpu" }
+poethepoet = "^0.28.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
 hypothesis = "^6.112.0"
-poethepoet = "^0.28.0"
 
 [build-system]
 requires = ["poetry-core"]
