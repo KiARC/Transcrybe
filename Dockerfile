@@ -14,6 +14,6 @@ RUN touch README.md
 COPY pyproject.toml poetry.lock ./
 RUN poetry install --without dev
 
-COPY transcrybe ./
+ADD transcrybe/ ./
 
 CMD ["poetry", "run", "poe", "serve"]
