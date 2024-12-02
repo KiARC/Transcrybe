@@ -15,7 +15,7 @@ priority = "explicit"
 [tool.poetry.dependencies]
 python = "^3.12"
 fastapi = { extras = ["standard"], version = "^0.114.0" }
-python-multipart = "^0.0.9"
+python-multipart = "^0.0.18"
 whisperx = { git = "https://github.com/m-bain/whisperx.git" }
 # Poetry for some reason picks 0.51.1 otherwise which requires an old llvmlite version which prevents the env from building
 numba = "^0.60.0"
